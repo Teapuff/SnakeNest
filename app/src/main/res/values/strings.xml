@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">SnakeNest</string>
+    <string name="cat">    Health = 9
+    Strength = 5
+    Agility = 10
+    Armor = 5
+    Luck = 7</string>
+
+    <string name="dog">    Health = 7
+    Strength = 7
+    Agility = 6
+    Armor = 8
+    Luck = 5</string>
+
+    <string name="chinchilla">    Health = 8
+    Strength = 4
+    Agility = 10
+    Armor = 3
+    Luck = 6</string>
 </resources>
