@@ -2,22 +2,26 @@ package com.boren.snakenest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.boren.snakenest.bricks.DarkRoomBrick;
-import com.boren.snakenest.bricks.DoorBrick;
-import com.boren.snakenest.bricks.NormalRoomBrick;
-import com.boren.snakenest.bricks.SingleBricks;
-import com.boren.snakenest.bricks.TrapBrick;
+import com.boren.snakenest.heroes.YourStat;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textViewHP, textViewAgility, textViewLuck, textViewStrength, textViewArmor;
+    YourStat yourStat = new YourStat();
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
+    private TextView textViewHealth, textViewAgility, textViewLuck, textViewStrength, textViewArmor, textViewDays;
     private ImageView imageViewBrick1, imageViewBrick2, imageViewBrick3, imageViewBrick4, imageViewBrick5, imageViewBrick6, imageViewBrick7, imageViewBrick8
             , imageViewBrick9, imageViewBrick10, imageViewBrick11, imageViewBrick12, imageViewBrick13, imageViewBrick14, imageViewBrick15, imageViewBrick16
             , imageViewBrick17, imageViewBrick18, imageViewBrick19, imageViewBrick20, imageViewBrick21, imageViewBrick22, imageViewBrick23, imageViewBrick24
@@ -34,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textViewHP = findViewById(R.id.textViewHP);
+        textViewHealth = findViewById(R.id.textViewHP);
         textViewAgility = findViewById(R.id.textViewAgility);
         textViewLuck = findViewById(R.id.textViewLuck);
         textViewStrength = findViewById(R.id.textViewStrength);
+        textViewArmor = findViewById(R.id.textViewArmor);
+        textViewDays = findViewById(R.id.textViewDays);
 
         imageViewBrick1 = findViewById(R.id.imageViewBrick1);
         imageViewBrick2 = findViewById(R.id.imageViewBrick2);
@@ -106,25 +112,35 @@ public class MainActivity extends AppCompatActivity {
         imageViewBrick65 = findViewById(R.id.imageViewBrick65);
         imageViewBrick66 = findViewById(R.id.imageViewBrick66);
 
-        textViewArmor = findViewById(R.id.textViewArmor);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
+        String name = sharedPreferences.getString("name", "");
+        int health = sharedPreferences.getInt("health", 0);
+        int strength = sharedPreferences.getInt("strength", 0);
+        int agility = sharedPreferences.getInt("agility", 0);
+        int armor = sharedPreferences.getInt("armor", 0);
+        int luck = sharedPreferences.getInt("luck", 0);
+        int days = sharedPreferences.getInt("days", 0);
 
-        int hp = getIntent().getIntExtra("Health", 0);
-        int strength = getIntent().getIntExtra("Strength", 0);
-        int agility = getIntent().getIntExtra("Agility", 0);
-        int armor = getIntent().getIntExtra("Armor", 0);
-        int luck = getIntent().getIntExtra("Luck", 0);
-
-        textViewHP.setText("" + hp);
-        textViewStrength.setText("" + strength);
+        textViewHealth.setText("" + health);
         textViewAgility.setText("" + agility);
-        textViewArmor.setText("" + armor);
         textViewLuck.setText("" + luck);
+        textViewStrength.setText("" + strength);
+        textViewArmor.setText("" + armor);
+        textViewDays.setText("" + days);
+
+        yourStat.setName(name);
+        yourStat.setHelth(health);
+        yourStat.setStrength(strength);
+        yourStat.setAgility(agility);
+        yourStat.setArmor(armor);
+        yourStat.setLuck(luck);
     }
 
 
     public void getBrick (View view) {
         Random rand = new Random();
-        int randBrick = rand.nextInt(9) + 1;
+        int randBrick = rand.nextInt(1) + 1;
 
         switch (randBrick){
             case 1:
@@ -156,14 +172,13 @@ public class MainActivity extends AppCompatActivity {
                 room(view);
                 break;
         }
-
-
     }
 
     public void trap(View view){
         if (view.getId() == imageViewBrick1.getId()){
             imageViewBrick1.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick2.getId()){
             imageViewBrick2.setImageResource(R.drawable.trap_brick);
@@ -325,6 +340,46 @@ public class MainActivity extends AppCompatActivity {
             imageViewBrick41.setImageResource(R.drawable.trap_brick);
             allBricks(view);
         }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.trap_brick);
+            allBricks(view);
+        }
         if (view.getId() == imageViewBrick52.getId()){
             imageViewBrick52.setImageResource(R.drawable.trap_brick);
             allBricks(view);
@@ -345,7 +400,7 @@ public class MainActivity extends AppCompatActivity {
             imageViewBrick56.setImageResource(R.drawable.trap_brick);
             allBricks(view);
         }
-        if (view.getId() == imageViewBrick5.getId()){
+        if (view.getId() == imageViewBrick57.getId()){
             imageViewBrick57.setImageResource(R.drawable.trap_brick);
             allBricks(view);
         }
@@ -550,6 +605,46 @@ public class MainActivity extends AppCompatActivity {
         }
         if (view.getId() == imageViewBrick41.getId()){
             imageViewBrick41.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.darkroom_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.darkroom_brick);
             allBricks(view);
         }
         if (view.getId() == imageViewBrick52.getId()){
@@ -779,6 +874,47 @@ public class MainActivity extends AppCompatActivity {
             imageViewBrick41.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
         }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.clutter_brick);
+            allBricks(view);
+        }
+
         if (view.getId() == imageViewBrick52.getId()){
             imageViewBrick52.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
@@ -1004,6 +1140,46 @@ public class MainActivity extends AppCompatActivity {
         }
         if (view.getId() == imageViewBrick41.getId()){
             imageViewBrick41.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.corridor_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.corridor_brick);
             allBricks(view);
         }
         if (view.getId() == imageViewBrick52.getId()){
@@ -1233,6 +1409,46 @@ public class MainActivity extends AppCompatActivity {
             imageViewBrick41.setImageResource(R.drawable.trap_grid_brick);
             allBricks(view);
         }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.trap_grid_brick);
+            allBricks(view);
+        }
         if (view.getId() == imageViewBrick52.getId()){
             imageViewBrick52.setImageResource(R.drawable.trap_grid_brick);
             allBricks(view);
@@ -1458,6 +1674,46 @@ public class MainActivity extends AppCompatActivity {
         }
         if (view.getId() == imageViewBrick41.getId()){
             imageViewBrick41.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.door_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.door_brick);
             allBricks(view);
         }
         if (view.getId() == imageViewBrick52.getId()){
@@ -1687,6 +1943,46 @@ public class MainActivity extends AppCompatActivity {
             imageViewBrick41.setImageResource(R.drawable.turning_room);
             allBricks(view);
         }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.turning_room);
+            allBricks(view);
+        }
         if (view.getId() == imageViewBrick52.getId()){
             imageViewBrick52.setImageResource(R.drawable.turning_room);
             allBricks(view);
@@ -1914,6 +2210,46 @@ public class MainActivity extends AppCompatActivity {
             imageViewBrick41.setImageResource(R.drawable.botomlesswell_brick);
             allBricks(view);
         }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.botomlesswell_brick);
+            allBricks(view);
+        }
         if (view.getId() == imageViewBrick52.getId()){
             imageViewBrick52.setImageResource(R.drawable.botomlesswell_brick);
             allBricks(view);
@@ -2139,6 +2475,46 @@ public class MainActivity extends AppCompatActivity {
         }
         if (view.getId() == imageViewBrick41.getId()){
             imageViewBrick41.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick42.getId()){
+            imageViewBrick42.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick43.getId()){
+            imageViewBrick43.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick44.getId()){
+            imageViewBrick44.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick45.getId()){
+            imageViewBrick45.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick46.getId()){
+            imageViewBrick46.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick47.getId()){
+            imageViewBrick47.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick48.getId()){
+            imageViewBrick48.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick49.getId()){
+            imageViewBrick49.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick50.getId()){
+            imageViewBrick50.setImageResource(R.drawable.room_brick);
+            allBricks(view);
+        }
+        if (view.getId() == imageViewBrick51.getId()){
+            imageViewBrick51.setImageResource(R.drawable.room_brick);
             allBricks(view);
         }
         if (view.getId() == imageViewBrick52.getId()){
@@ -2402,5 +2778,53 @@ public class MainActivity extends AppCompatActivity {
         if (view.getId() == imageViewBrick66.getId()){
             imageViewBrick6.setClickable(false);
         }
+    }
+
+    public void trapCard(){
+        Random rand = new Random();
+        int randTrap = rand.nextInt(3);
+
+        switch (randTrap){
+            case 0:
+                Intent snake = new Intent(MainActivity.this, PoisonousSnakeTrapCard.class);
+                startActivity(snake);
+                finish();
+                break;
+            case 1:
+                Intent fog = new Intent(MainActivity.this, ToxicFogTrapCard.class);
+                startActivity(fog);
+                finish();
+                break;
+            case 2:
+                Intent explossion = new Intent(MainActivity.this, ExplossionTrapCard.class);
+                startActivity(explossion);
+                finish();
+                break;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
+
+        int health = sharedPreferences.getInt("health", 0);
+        int days = sharedPreferences.getInt("days", 0);
+
+        days--;
+
+        editor.putInt("days", days);
+        editor.commit();
+
+
+        if (health <= 0 ){
+            Intent intent = new Intent(MainActivity.this, DeadActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+
+
     }
 }
