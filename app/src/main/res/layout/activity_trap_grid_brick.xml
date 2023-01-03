@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ToxicFogTrapCard">
+    tools:context=".TrapGridBrick">
 
     <ImageView
         android:id="@+id/imageViewDice"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
-        android:text="You encounter a toxic fog"
+        android:text="You encounter a trap Grid"
         android:textColor="@color/black"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your roll a T6 dice for damage and days"
+        android:text="Your roll a T12 dice for to see if you succed liftng the grid"
         android:textColor="@color/black"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
-        android:text="Your damage is T6-3 and loses T6-3 turns"
+        android:text="You success if you roll lower or equalts to your Strength"
         android:textColor="@color/black"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="You take 0 damage"
+        android:text="You succeeded lifting the grid"
         android:textColor="@color/black"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +88,7 @@
         android:layout_marginTop="28dp"
         android:text="OK"
         android:textSize="34sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/successOrFail" />

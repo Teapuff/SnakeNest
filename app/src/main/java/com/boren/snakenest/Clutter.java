@@ -13,11 +13,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ExplossionTrapCard extends AppCompatActivity {
+import java.util.Random;
+
+public class Clutter extends AppCompatActivity {
 
     private Animation animation;
     private ImageView dice;
-    private TextView rolingDiceRoll, rolingDiceDamage;
+    private TextView rolingDiceSuccess, successOrFail;
     private Button buttonOk;
 
     private SharedPreferences sharedPreferences;
@@ -26,33 +28,40 @@ public class ExplossionTrapCard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_explossion_trap_card);
+        setContentView(R.layout.activity_clutter);
+
+        Random rand = new Random();
+        int randSuccess = rand.nextInt(12) + 1;
 
         dice = findViewById(R.id.imageViewDice);
-        rolingDiceDamage = findViewById(R.id.successOrFail);
+        rolingDiceSuccess = findViewById(R.id.rolingDiceRollSuccess);
+        successOrFail = findViewById(R.id.successOrFail);
         buttonOk = findViewById(R.id.buttonOk);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
 
-        int health = sharedPreferences.getInt("health", 0);
         int days = sharedPreferences.getInt("days", 0);
+        int agility = sharedPreferences.getInt("agility", 0);
 
-        int newHealth = health-4;
-        int newDays = days - 1;
+        rolingDiceSuccess.setText("You rolled a " + randSuccess);
+        if (randSuccess <= agility){
+            successOrFail.setText("You succeeded going through the room");
+        }
+        else {
+            successOrFail.setText("You failed going through the room");
+        }
 
-        animation = AnimationUtils.loadAnimation(ExplossionTrapCard.this, R.anim.dice_animation);
+        animation = AnimationUtils.loadAnimation(Clutter.this, R.anim.dice_animation);
         dice.setAnimation(animation);
 
         dice.setVisibility(View.INVISIBLE);
 
         buttonOk.setOnClickListener(v -> {
-            Intent intent = new Intent(ExplossionTrapCard.this, MainActivity.class);
-            editor.putInt("health", newHealth);
-            editor.putInt("days", newDays);
-            editor.commit();
+            Intent intent = new Intent(Clutter.this, MainActivity.class);
             startActivity(intent);
             finish();
+
         });
     }
 }

@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/rolingDiceDamage"
+        android:id="@+id/successOrFail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="37dp"
@@ -39,10 +39,10 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rolingDiceRoll" />
+        app:layout_constraintTop_toBottomOf="@+id/rolingDiceRollSuccess" />
 
     <TextView
-        android:id="@+id/rolingDiceRoll"
+        android:id="@+id/rolingDiceRollSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"

@@ -140,35 +140,37 @@ public class MainActivity extends AppCompatActivity {
 
     public void getBrick (View view) {
         Random rand = new Random();
-        int randBrick = rand.nextInt(1) + 1;
+        int randBrick = rand.nextInt(8);
 
-        switch (randBrick){
-            case 1:
+        switch (4){
+            case 0:
                 trap(view);
                 break;
-            case 2:
+            case 1:
                 darkroom(view);
                 break;
-            case 3:
+            case 2:
                 clutter(view);
+                clutterCard(); //inte kunna gå vidare om man misslyckas
+                break;
+            case 3:
+                corridor(view); //info att man får ta en ny bricka
                 break;
             case 4:
-                corridor(view);
-                break;
-            case 5:
                 //göra så man gör om det tills man lyckas
                 trapGrid(view);
+                trapGridCard();
                 break;
-            case 6:
+            case 5:
                 door(view);
                 break;
-            case 7:
+            case 6:
                 turningRoom(view);
                 break;
-            case 8:
+            case 7:
                 bottomlessWell(view);
                 break;
-            case 9:
+            case 8:
                 room(view);
                 break;
         }
@@ -183,262 +185,327 @@ public class MainActivity extends AppCompatActivity {
         if (view.getId() == imageViewBrick2.getId()){
             imageViewBrick2.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick3.getId()){
             imageViewBrick3.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick4.getId()){
             imageViewBrick4.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick5.getId()){
             imageViewBrick5.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick6.getId()){
             imageViewBrick6.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick7.getId()){
             imageViewBrick7.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick8.getId()){
             imageViewBrick8.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick9.getId()){
             imageViewBrick9.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick10.getId()){
             imageViewBrick10.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick11.getId()){
             imageViewBrick11.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick12.getId()){
             imageViewBrick12.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick13.getId()){
             imageViewBrick13.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick14.getId()){
             imageViewBrick14.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick15.getId()){
             imageViewBrick15.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick16.getId()){
             imageViewBrick16.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick17.getId()){
             imageViewBrick17.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick18.getId()){
             imageViewBrick18.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick19.getId()){
             imageViewBrick19.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick20.getId()){
             imageViewBrick20.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick21.getId()){
             imageViewBrick21.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick22.getId()){
             imageViewBrick22.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick23.getId()){
             imageViewBrick23.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick24.getId()){
             imageViewBrick24.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick25.getId()){
             imageViewBrick25.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick26.getId()){
             imageViewBrick26.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick27.getId()){
             imageViewBrick27.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick28.getId()){
             imageViewBrick28.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick29.getId()){
             imageViewBrick29.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick30.getId()){
             imageViewBrick30.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick31.getId()){
             imageViewBrick31.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick32.getId()){
             imageViewBrick32.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick33.getId()){
             imageViewBrick33.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick34.getId()){
             imageViewBrick34.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick35.getId()){
             imageViewBrick35.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick36.getId()){
             imageViewBrick36.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick37.getId()){
             imageViewBrick37.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick38.getId()){
             imageViewBrick38.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick39.getId()){
             imageViewBrick39.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick40.getId()){
             imageViewBrick40.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick41.getId()){
             imageViewBrick41.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick42.getId()){
             imageViewBrick42.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick43.getId()){
             imageViewBrick43.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick44.getId()){
             imageViewBrick44.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick45.getId()){
             imageViewBrick45.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick46.getId()){
             imageViewBrick46.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick47.getId()){
             imageViewBrick47.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick48.getId()){
             imageViewBrick48.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick49.getId()){
             imageViewBrick49.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick50.getId()){
             imageViewBrick50.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick51.getId()){
             imageViewBrick51.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick52.getId()){
             imageViewBrick52.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick53.getId()){
             imageViewBrick53.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick54.getId()){
             imageViewBrick54.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick55.getId()){
             imageViewBrick55.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick56.getId()){
             imageViewBrick56.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick57.getId()){
             imageViewBrick57.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick58.getId()){
             imageViewBrick58.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick59.getId()){
             imageViewBrick59.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick60.getId()){
             imageViewBrick60.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick61.getId()){
             imageViewBrick61.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick62.getId()){
             imageViewBrick62.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick63.getId()){
             imageViewBrick63.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick64.getId()){
             imageViewBrick64.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick65.getId()){
             imageViewBrick65.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
         if (view.getId() == imageViewBrick66.getId()){
             imageViewBrick66.setImageResource(R.drawable.trap_brick);
             allBricks(view);
+            trapCard();
         }
     }
 
@@ -713,267 +780,333 @@ public class MainActivity extends AppCompatActivity {
         if (view.getId() == imageViewBrick1.getId()){
             imageViewBrick1.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick2.getId()){
             imageViewBrick2.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick3.getId()){
             imageViewBrick3.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick4.getId()){
             imageViewBrick4.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick5.getId()){
             imageViewBrick5.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick6.getId()){
             imageViewBrick6.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick7.getId()){
             imageViewBrick7.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick8.getId()){
             imageViewBrick8.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick9.getId()){
             imageViewBrick9.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick10.getId()){
             imageViewBrick10.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick11.getId()){
             imageViewBrick11.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick12.getId()){
             imageViewBrick12.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick13.getId()){
             imageViewBrick13.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick14.getId()){
             imageViewBrick14.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick15.getId()){
             imageViewBrick15.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick16.getId()){
             imageViewBrick16.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick17.getId()){
             imageViewBrick17.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick18.getId()){
             imageViewBrick18.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick19.getId()){
             imageViewBrick19.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick20.getId()){
             imageViewBrick20.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick21.getId()){
             imageViewBrick21.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick22.getId()){
             imageViewBrick22.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick23.getId()){
             imageViewBrick23.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick24.getId()){
             imageViewBrick24.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick25.getId()){
             imageViewBrick25.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick26.getId()){
             imageViewBrick26.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick27.getId()){
             imageViewBrick27.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick28.getId()){
             imageViewBrick28.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick29.getId()){
             imageViewBrick29.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick30.getId()){
             imageViewBrick30.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick31.getId()){
             imageViewBrick31.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick32.getId()){
             imageViewBrick32.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick33.getId()){
             imageViewBrick33.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick34.getId()){
             imageViewBrick34.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick35.getId()){
             imageViewBrick35.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick36.getId()){
             imageViewBrick36.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick37.getId()){
             imageViewBrick37.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick38.getId()){
             imageViewBrick38.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick39.getId()){
             imageViewBrick39.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick40.getId()){
             imageViewBrick40.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick41.getId()){
             imageViewBrick41.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick42.getId()){
             imageViewBrick42.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick43.getId()){
             imageViewBrick43.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick44.getId()){
             imageViewBrick44.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick45.getId()){
             imageViewBrick45.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick46.getId()){
             imageViewBrick46.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick47.getId()){
             imageViewBrick47.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick48.getId()){
             imageViewBrick48.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick49.getId()){
             imageViewBrick49.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick50.getId()){
             imageViewBrick50.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick51.getId()){
             imageViewBrick51.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
 
         if (view.getId() == imageViewBrick52.getId()){
             imageViewBrick52.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick53.getId()){
             imageViewBrick53.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick54.getId()){
             imageViewBrick54.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick55.getId()){
             imageViewBrick55.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick56.getId()){
             imageViewBrick56.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick5.getId()){
             imageViewBrick57.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick58.getId()){
             imageViewBrick58.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick59.getId()){
             imageViewBrick59.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick60.getId()){
             imageViewBrick60.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick61.getId()){
             imageViewBrick61.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick62.getId()){
             imageViewBrick62.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick63.getId()){
             imageViewBrick63.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick64.getId()){
             imageViewBrick64.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick65.getId()){
             imageViewBrick65.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
         if (view.getId() == imageViewBrick66.getId()){
             imageViewBrick66.setImageResource(R.drawable.clutter_brick);
             allBricks(view);
+            clutterCard();
         }
     }
 
@@ -2782,7 +2915,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void trapCard(){
         Random rand = new Random();
-        int randTrap = rand.nextInt(3);
+        int randTrap = rand.nextInt(5);
 
         switch (randTrap){
             case 0:
@@ -2800,7 +2933,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(explossion);
                 finish();
                 break;
+            case 3:
+                Intent roofCollapse = new Intent(MainActivity.this, TheRoofCollapsesTrapCard.class);
+                startActivity(roofCollapse);
+                finish();
+                break;
+            case 4:
+                Intent arrow = new Intent(MainActivity.this, ArrowsFromWallTrapCard.class);
+                startActivity(arrow);
+                finish();
+                break;
         }
+    }
+
+    public void clutterCard() {
+        Intent intent = new Intent(MainActivity.this, Clutter.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void trapGridCard() {
+        Intent intent = new Intent(MainActivity.this, TrapGridBrick.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

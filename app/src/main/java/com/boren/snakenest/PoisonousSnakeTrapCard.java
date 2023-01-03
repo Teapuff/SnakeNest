@@ -35,8 +35,8 @@ public class PoisonousSnakeTrapCard extends AppCompatActivity {
         int randDMG = rand.nextInt(12) + 1;
 
         dice = findViewById(R.id.imageViewDice);
-        rolingDiceRoll = findViewById(R.id.rolingDiceRoll);
-        rolingDiceDamage = findViewById(R.id.rolingDiceDamage);
+        rolingDiceRoll = findViewById(R.id.rolingDiceRollSuccess);
+        rolingDiceDamage = findViewById(R.id.successOrFail);
         buttonOk = findViewById(R.id.buttonOk);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);

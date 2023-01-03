@@ -13,6 +13,38 @@
         android:theme="@style/Theme.SnakeNest"
         tools:targetApi="31">
         <activity
+            android:name=".TrapGridBrick"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Clutter"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ArrowsFromWallTrapCard"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TheRoofCollapsesTrapCard"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ExplossionTrapCard"
             android:exported="false"
             android:screenOrientation="landscape">

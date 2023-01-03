@@ -15,8 +15,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class ToxicFogTrapCard extends AppCompatActivity {
-
+public class ArrowsFromWallTrapCard extends AppCompatActivity {
     private Animation animation;
     private ImageView dice;
     private TextView rolingDiceRoll, rolingDiceDamage;
@@ -25,15 +24,13 @@ public class ToxicFogTrapCard extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_toxic_fog_trap_card);
+        setContentView(R.layout.activity_arrows_from_wall_trap_card);
 
         Random rand = new Random();
-        int randDMG = rand.nextInt(6) + 1;
-        int randDays = rand.nextInt(6) + 1;
+        int randDMG = rand.nextInt(12) + 1;
 
         dice = findViewById(R.id.imageViewDice);
         rolingDiceRoll = findViewById(R.id.rolingDiceRollSuccess);
@@ -44,50 +41,36 @@ public class ToxicFogTrapCard extends AppCompatActivity {
         editor = sharedPreferences.edit();
         ;
         int health = sharedPreferences.getInt("health", 0);
-        int days = sharedPreferences.getInt("days", 0);
+        int agility = sharedPreferences.getInt("agility", 0);
 
-        int damage = randDMG-3;
+        int damage = randDMG-agility;
         int newHealth = health-damage;
-        int lostdays = randDays - 3;
-        int newDays = days - lostdays;
 
 
-        rolingDiceRoll.setText("You rolled a " + randDMG + " for damage and a " + randDays + " for days");
+        rolingDiceRoll.setText("You rolled a " + randDMG);
         if (damage <= 0){
-            if (lostdays <= 0){
-                rolingDiceDamage.setText("You take no damage and loses no extra days");
-            }
-            else{
-                rolingDiceDamage.setText("You take no damage but loses " + lostdays + " days");
-            }
+            rolingDiceDamage.setText("You take no damage");
         }
         else {
-            if (lostdays <= 0){
-                rolingDiceDamage.setText("You take " + damage + " damage but no extra days");
-            }
-            else{
-                rolingDiceDamage.setText("You take " + damage + " damage and loses " + lostdays + " extra days");
-            }
+            rolingDiceDamage.setText("You take " + damage + " damage");
         }
 
-        animation = AnimationUtils.loadAnimation(ToxicFogTrapCard.this, R.anim.dice_animation);
+        animation = AnimationUtils.loadAnimation(ArrowsFromWallTrapCard.this, R.anim.dice_animation);
         dice.setAnimation(animation);
 
         dice.setVisibility(View.INVISIBLE);
 
         buttonOk.setOnClickListener(v -> {
             if(damage <= 0) {
-                Intent intent = new Intent(ToxicFogTrapCard.this, MainActivity.class);
+                Intent intent = new Intent(ArrowsFromWallTrapCard.this, MainActivity.class);
                 editor.putInt("health", health);
-                editor.putInt("days", newDays);
                 editor.commit();
                 startActivity(intent);
                 finish();
             }
             else if(damage > 0){
-                Intent intent = new Intent(ToxicFogTrapCard.this, MainActivity.class);
+                Intent intent = new Intent(ArrowsFromWallTrapCard.this, MainActivity.class);
                 editor.putInt("health", newHealth);
-                editor.putInt("days", newDays);
                 editor.commit();
                 startActivity(intent);
                 finish();
@@ -95,5 +78,4 @@ public class ToxicFogTrapCard extends AppCompatActivity {
             }
         });
     }
-
 }
