@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/rolingDiceRollSuccess"
+        android:id="@+id/openClosedTrap"
         android:layout_width="wrap_content"
         android:layout_height="53dp"
         android:layout_marginTop="27dp"
@@ -64,7 +64,7 @@
         android:textColor="@color/black"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rolingDiceRollSuccess" />
+        app:layout_constraintTop_toBottomOf="@+id/openClosedTrap" />
 
     <Button
         android:id="@+id/buttonOk"

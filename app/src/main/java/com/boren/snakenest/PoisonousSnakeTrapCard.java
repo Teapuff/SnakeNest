@@ -35,7 +35,7 @@ public class PoisonousSnakeTrapCard extends AppCompatActivity {
         int randDMG = rand.nextInt(12) + 1;
 
         dice = findViewById(R.id.imageViewDice);
-        rolingDiceRoll = findViewById(R.id.rolingDiceRollSuccess);
+        rolingDiceRoll = findViewById(R.id.openClosedTrap);
         rolingDiceDamage = findViewById(R.id.successOrFail);
         buttonOk = findViewById(R.id.buttonOk);
 

@@ -42,7 +42,7 @@ public class TheRoofCollapsesTrapCard extends AppCompatActivity {
 
         dice = findViewById(R.id.imageViewDice);
         rolingDiceRollSuvival = findViewById(R.id.rolingDiceRollSuvival);
-        rolingDiceRollDamage = findViewById(R.id.rolingDiceRollSuccess);
+        rolingDiceRollDamage = findViewById(R.id.openClosedTrap);
         rolingDiceDamage = findViewById(R.id.successOrFail);
         editTextNumber = findViewById(R.id.editTextNumber);
         buttonOk = findViewById(R.id.buttonOk);

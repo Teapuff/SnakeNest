@@ -19,51 +19,63 @@ public class TrapGridBrick extends AppCompatActivity {
     private Animation animation;
     private ImageView dice;
     private TextView rolingDiceSuccess, successOrFail;
-    private Button buttonOk;
+    private Button buttonOk, buttonRollAgain;
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
-    boolean success = false;
-
+    int lostDays = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trap_grid_brick);
 
+        dice = findViewById(R.id.imageViewDice);
+        rolingDiceSuccess = findViewById(R.id.openClosedTrap);
+        successOrFail = findViewById(R.id.successOrFail);
+        buttonOk = findViewById(R.id.buttonOk);
+        buttonRollAgain = findViewById(R.id.buttonRollAgain);
+
         animation = AnimationUtils.loadAnimation(TrapGridBrick.this, R.anim.dice_animation);
         dice.setAnimation(animation);
 
         dice.setVisibility(View.INVISIBLE);
 
-        while (!success){
-            Random rand = new Random();
-            int randSuccess = rand.nextInt(12) + 1;
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
+        Random rand = new Random();
 
-            dice = findViewById(R.id.imageViewDice);
-            rolingDiceSuccess = findViewById(R.id.rolingDiceRollSuccess);
-            successOrFail = findViewById(R.id.successOrFail);
-            buttonOk = findViewById(R.id.buttonOk);
+        int days = sharedPreferences.getInt("days", 0);
+        int strength = sharedPreferences.getInt("strength", 0);
+        int newDays;
 
-            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            editor = sharedPreferences.edit();
+        buttonRollAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int randSuccess = rand.nextInt(12) + 1;
 
-            int days = sharedPreferences.getInt("days", 0);
-            int strength = sharedPreferences.getInt("strength", 0);
+                rolingDiceSuccess.setText("You rolled a " + randSuccess);
 
-            rolingDiceSuccess.setText("You rolled a " + randSuccess);
-            if (randSuccess > strength){
-                successOrFail.setText("You failed lifting the grid, and have to do it again next round");
+                if (randSuccess <= strength){
+                    successOrFail.setText("You succeeded lifting the grid");
+                    buttonOk.setVisibility(View.VISIBLE);
+                    buttonRollAgain.setVisibility(View.INVISIBLE);
+                    lostDays = 0;
+                }
+                else if (randSuccess > strength){
+                    successOrFail.setText("You failed lifting the grid, and have to do it again next round");
+                    lostDays = lostDays +1;
+                }
             }
-            else {
-                successOrFail.setText("You succeeded lifting the grid");
-                buttonOk.setVisibility(View.VISIBLE);
-            }
-        }
+        });
+
+        newDays = days - lostDays;
 
         buttonOk.setOnClickListener(v -> {
             Intent intent = new Intent(TrapGridBrick.this, MainActivity.class);
+            editor.putInt("days", newDays);
+            editor.commit();
             startActivity(intent);
             finish();
 

@@ -34,7 +34,7 @@ public class Clutter extends AppCompatActivity {
         int randSuccess = rand.nextInt(12) + 1;
 
         dice = findViewById(R.id.imageViewDice);
-        rolingDiceSuccess = findViewById(R.id.rolingDiceRollSuccess);
+        rolingDiceSuccess = findViewById(R.id.openClosedTrap);
         successOrFail = findViewById(R.id.successOrFail);
         buttonOk = findViewById(R.id.buttonOk);
 
