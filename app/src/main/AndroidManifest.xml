@@ -13,6 +13,30 @@
         android:theme="@style/Theme.SnakeNest"
         tools:targetApi="31">
         <activity
+            android:name=".CorridorBrick"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TurningRoomBrick"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DarkRoomBrick"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DoorBrick"
             android:exported="false"
             android:screenOrientation="landscape">
@@ -21,7 +45,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".TrapGridBrick"
+            android:name=".TrapGridCard"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class TrapGridBrick extends AppCompatActivity {
+public class TrapGridCard extends AppCompatActivity {
     private Animation animation;
     private ImageView dice;
     private TextView rolingDiceSuccess, successOrFail;
@@ -37,7 +37,7 @@ public class TrapGridBrick extends AppCompatActivity {
         buttonOk = findViewById(R.id.buttonOk);
         buttonRollAgain = findViewById(R.id.buttonRollAgain);
 
-        animation = AnimationUtils.loadAnimation(TrapGridBrick.this, R.anim.dice_animation);
+        animation = AnimationUtils.loadAnimation(TrapGridCard.this, R.anim.dice_animation);
         dice.setAnimation(animation);
 
         dice.setVisibility(View.INVISIBLE);
@@ -73,7 +73,7 @@ public class TrapGridBrick extends AppCompatActivity {
         newDays = days - lostDays;
 
         buttonOk.setOnClickListener(v -> {
-            Intent intent = new Intent(TrapGridBrick.this, MainActivity.class);
+            Intent intent = new Intent(TrapGridCard.this, MainActivity.class);
             editor.putInt("days", newDays);
             editor.commit();
             startActivity(intent);
